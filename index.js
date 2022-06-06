@@ -1,14 +1,17 @@
-//PREPARAMOS O EXPRESS E TORNAMOS UTILIZAVEL
 const express = require('express');
 const app = express();
 
-//RECEBE UMA REQUISIÇÃO E DEVOLVE UMA REPOSTA
+let data = new Date();
+
+let mensagemDoDia = require('./mensagemDoDia');
+
 app.get('/', (req, res) => {
-    res.send('ola, Mundo');
+    let dia = data.getDate();
+    let mensagemSelecionada = mensagemDoDia.retornarMensagemDoDia(dia);
+
+    res.json({mensagem: mensagemSelecionada});
 });
 
-//MONITORA AS REQUISIÇÕES 
 app.listen(8080, () => {
-    let data = new Date();
- console.log('Servidor node iniciado e, :' +data);
- });
+    console.log('Servidor node iniciado em: ' + data);
+})
