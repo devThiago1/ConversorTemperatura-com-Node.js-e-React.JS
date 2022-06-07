@@ -13,5 +13,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(8080, () => {
-    console.log('Servidor node iniciado em: ' + data)
+    console.log('Servidor node iniciado em: ' + data);
+    console.log('Tudo OK');
 })
