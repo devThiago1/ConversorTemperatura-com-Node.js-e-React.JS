@@ -7,6 +7,7 @@ const conversorTemperatura = require('./conversorTemperatura');
 
 app.get('/', (req, res) => {
     let temperatura = req.query.temperatura;
+    let conversor = req.query.conversor;
 
     let temperaturaGraus = conversorTemperatura.converteTemperatura(temperatura, conversor)
 
